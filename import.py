@@ -16,18 +16,18 @@ ponti.drop()  # ricostruisce la collection da capo
 with open('pontixls.csv', 'rb') as f:
     csvfile = reader(f)
     for row in csvfile:
-        doc = dict(nome=row[0],
-                   frequenza=row[1],
-                   shift=row[2],
-                   tono=row[3],
-                   regione=row[4],
-                   provincia=row[5],
-                   localita=row[6],
-                   gruppo=row[7],
-                   identificatore=row[8],
-                   traslatore=row[9],
-                   locator=row[10],
-                   gestore=row[15])
+        doc = dict(nome=row[0].strip(),
+                   frequenza=row[1].strip(),
+                   shift=row[2].strip(),
+                   tono=row[3].strip(),
+                   regione=row[4].strip().lower(),
+                   provincia=row[5].strip().upper(),
+                   localita=row[6].strip(),
+                   gruppo=row[7].strip(),
+                   identificatore=row[8].strip(),
+                   traslatore=row[9].strip(),
+                   locator=row[10].strip(),
+                   gestore=row[15].strip())
         ponti.insert_one(doc)
 
 ponti.create_index('nome')
