@@ -7,8 +7,9 @@ Vedere: http://www.ik2ane.it
 Autore: Fabio Pani [IZ2UQF] <fabiux@fabiopani.it>
 Licenza d'uso: GNU/GPL v3 (vedere file LICENSE allegato)
 """
-from pymongo import MongoClient
+from pymongo import MongoClient, GEOSPHERE
 from csv import reader
+from wwl import is_valid_locator, convert_locator, get_longitude, get_latitude
 
 ponti = MongoClient().hamradio.ponti
 ponti.drop()  # ricostruisce la collection da capo
@@ -28,8 +29,15 @@ with open('pontixls.csv', 'rb') as f:
                    traslatore=row[9].strip(),
                    locator=row[10].strip(),
                    gestore=row[15].strip())
+
+        if doc['locator'] != '':  # calcola le coordinate approssimate (centro del riquadro)
+            if is_valid_locator(doc['locator']):
+                location = convert_locator(doc['locator'])
+                doc['geoloc'] = [get_longitude(location), get_latitude(location)]
+
         ponti.insert_one(doc)
 
 ponti.create_index('nome')
 ponti.create_index('regione')
 ponti.create_index('provincia')
+ponti.create_index([('geoloc', GEOSPHERE)])
