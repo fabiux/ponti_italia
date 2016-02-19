@@ -28,10 +28,12 @@ for ponte in res:
         marker_color = '#0000ff'
     properties = {'name': ponte['nome'],
                   'marker-color': marker_color,
-                  'frequenza': ponte['frequenza'],
-                  'identificatore': ponte['identificatore'] or '',
-                  'tono': ponte['tono'] or '',
-                  'shift': ponte['shift'] or ''}
+                  'marker-symbol': 'circle-stroked',
+                  'title': ponte['nome'],
+                  'description': 'frequenza: ' + ponte['frequenza'] + '<br />id: ' +
+                                 (ponte['identificatore'] or '') + '<br />tono: ' +
+                                 (ponte['tono'] or '') + '<br />shift: ' + (ponte['shift'] or '')
+                  }
     feature = dict(type='Feature',
                    properties=properties,
                    geometry=dict(type='Point', coordinates=ponte['geoloc']))
