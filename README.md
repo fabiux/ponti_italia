@@ -12,6 +12,9 @@ Eliminare la prima riga (intestazione) e alcune righe alla fine del documento (e
 
 Lanciare lo script che ricrea la collection <code>ponti</code> e ricostruisce alcuni indici.
 
+## gen_geojson.py
+Esporta le informazioni dei ponti geolocalizzati nel file <code>ponti.json</code>, in formato <code>GeoJSON</code>.
+
 ## Esempi di query
 Numero di ponti per provincia:
 
