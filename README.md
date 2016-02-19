@@ -15,6 +15,8 @@ Lanciare lo script che ricrea la collection <code>ponti</code> e ricostruisce al
 ## gen_geojson.py
 Esporta le informazioni dei ponti geolocalizzati nel file <code>ponti.json</code>, in formato <code>GeoJSON</code>.
 
+Esempio di <a href="http://ponti.fabiopani.it/">mappa</a>.
+
 ## Esempi di query
 Numero di ponti per provincia:
 
