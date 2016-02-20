@@ -22,7 +22,7 @@ for ponte in res:
         marker_color = '#ffff00'
     elif frnum < 430000:
         marker_color = '#ff0000'
-    elif frnum < 436000:
+    elif frnum < 440000:
         marker_color = '#00ff00'
     else:
         marker_color = '#0000ff'
@@ -40,5 +40,5 @@ for ponte in res:
     json['features'].append(feature)
     cnt += 1
 with open('ponti.json', 'wb') as f:
-    dump(json, f, indent=4, separators=(',',':'))
+    dump(json, f, indent=4, separators=(',', ':'))
 print 'Totale ponti geolocalizzati: ' + str(cnt)
