@@ -1,8 +1,7 @@
 .idea/
 *.pyc
 *.swp
-pontixls.csv
-ponti.json
+utils/pontixls.csv
+utils/ponti.json
+utils/ponti.js
 deploy_*
-utils/
-www/
